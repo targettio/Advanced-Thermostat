@@ -8,7 +8,7 @@ The code cycles every quater of a second:
 * Compares the 2 temperatures based on the configuration set below
 * Turns the fan on/off based on the rules/configuration
 * Checks for incoming ethernet connection and provides a webpage with the current temperature and fan status
-*
+
 ###### Based on ######
  Web  Server
  
