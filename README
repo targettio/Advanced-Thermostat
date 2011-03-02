@@ -1,1 +1,9 @@
 This project aims to use an Arduino to control a series of ceiling fan systems
+
+The system will take two temperature measurements. One ~500mm from the ceiling (where the fans are installed) and one at ~500mm from floor level.
+
+These two temperatures will be compared and based on a series of rules the ceiling fans will be turned on or off.
+
+The aim will be to provide a comfortable temperature and floor level by only turning the ceiling fans on when the air in the ceiling is closer to the ideal temperature (19ºC) than the floor air.
+
+This means, if the air in the ceiling is hotter than the air at floor level and the floor level air is below 19ºC the fans will be on. This should push the warm air down and increase the air temperature at 'working hieght'.
