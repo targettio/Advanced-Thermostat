@@ -1,9 +1,19 @@
-This project aims to use an Arduino to control a series of ceiling fan systems
+The Developement branch aims to add features. This branch is largely un-tested, contains a lot of debug code and may just not work.
 
-The system will take two temperature measurements. One ~500mm from the ceiling (where the fans are installed) and one at ~500mm from floor level.
+Features to be added:
+General
+* DCHP - get an IP from the DCHP server (prevents IP conficts)
+* Add a page for direct control 
+* Add a page that is used to foward information to a server (which collates serveral fan controllers)
 
-These two temperatures will be compared and based on a series of rules the ceiling fans will be turned on or off.
+Direct control page
+* Allow the user to turn the turn the fans on via the web interface
+* Allow the user to configure the system variables via the web interface (e.g. TargetFloorTemp and MinimumFanRuntime)
+* Basic html formating (make it look a little pretty)
+* Auto-refresh
 
-The aim will be to provide a comfortable temperature and floor level by only turning the ceiling fans on when the air in the ceiling is closer to the ideal temperature (19ºC) than the floor air.
+Info page
+* Allow the remote user to turn the fans on via the web interface
+* Allow the remote user to configure the system variables via HTTP GETs or JSON.(e.g. TargetFloorTemp and MinimumFanRuntime)
 
-This means, if the air in the ceiling is hotter than the air at floor level and the floor level air is below 19ºC the fans will be on. This should push the warm air down and increase the air temperature at 'working hieght'.
+
