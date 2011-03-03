@@ -8,15 +8,14 @@ The code cycles every quater of a second:
 * Compares the 2 temperatures based on the configuration set below
 * Turns the fan on/off based on the rules/configuration
 * Checks for incoming ethernet connection and provides a webpage with the current temperature and fan status
+* Auto 5 second refresh on the main page
 
 Beta Features:
-*
-
-Untested Features:
-* Auto 5 second refresh on the main page
-* DHCP
 * Better request handling (c as a string)
 * Initial steps towards different pages
+
+Untested Features:
+* DHCP
 
 ####################### 
  */
@@ -63,6 +62,7 @@ int Fanstatus = 0;
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+byte ip[] = { 192,168,0,177 };
 const byte* ipAddr;
 const byte* gatewayAddr;
 const byte* dnsAddr;
@@ -76,6 +76,12 @@ Server server(80);
 
 void setup()
 {
+  //Serial for debugging
+  Serial.begin(9600);
+  
+  /*
+  // Commented out the DCHP code as it doesn't work when the board is ocnnected directy to a PC
+  Serial.println("Looking for DHCP address");
   // start the Ethernet connection and the server:
   EthernetDHCP.begin(mac);
   ipAddr = EthernetDHCP.ipAddress();
@@ -89,12 +95,12 @@ void setup()
   Serial.println(ip_to_str(gatewayAddr)); 
   Serial.print("DNS IP address is ");
   Serial.println(ip_to_str(dnsAddr));
+  */
   
+  Ethernet.begin(mac, ip);
   //Server begin
   server.begin();
   
-  //Serial for debugging
-  Serial.begin(9600);
 }
 
 void loop()
